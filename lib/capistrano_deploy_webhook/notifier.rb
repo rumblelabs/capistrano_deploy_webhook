@@ -17,8 +17,8 @@ Capistrano::Configuration.instance.load do
         {'app_name' => self[:application], 
          'app' => self[:application], 
          'user' => self[:user], 
-         'sha' => self[:current_revision], 
-         'prev_sha' => self[:previous_revision], 
+         #'sha' => self[:current_revision], 
+         #'prev_sha' => self[:previous_revision], 
          'url' => self[:url]}, 
          ';')
       res = Net::HTTP.new(url.host, url.port).start {|http| http.request(req) }
