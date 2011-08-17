@@ -2,7 +2,7 @@ require 'net/http'
 require 'uri'
 
 unless Capistrano::Configuration.respond_to?(:instance)
-  abort "rails_deploy_notification requires Capistrano 2"
+  abort "capistrano_deploy_webhook requires Capistrano 2"
 end
 
 Capistrano::Configuration.instance.load do
@@ -17,8 +17,8 @@ Capistrano::Configuration.instance.load do
         {'app_name' => self[:application], 
          'app' => self[:application], 
          'user' => self[:user], 
-         #'sha' => self[:current_revision], 
-         #'prev_sha' => self[:previous_revision], 
+         'sha' => self[:current_revision], 
+         'prev_sha' => self[:previous_revision], 
          'url' => self[:url]}, 
          ';')
       res = Net::HTTP.new(url.host, url.port).start {|http| http.request(req) }
