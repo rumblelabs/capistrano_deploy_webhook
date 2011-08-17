@@ -12,7 +12,7 @@ Usage
 
 In your config/deploy.rb file:-
 
-    require 'capistrano/notifier_hook'
+    require 'capistrano_deploy_webhook/notifier'
     set :notify_url, "http://mypostserver/deploy_activity"
 
 Credits
