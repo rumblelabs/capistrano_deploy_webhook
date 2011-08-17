@@ -4,7 +4,8 @@ capistrano_deploy_webhook
 Installation
 ------------
 
-    gem install capistrano_deploy_webhook
+    gem 'capistrano_deploy_webhook', :git => 'git://github.com/rumblelabs/capistrano_deploy_webhook.git'
+    bundle install
 
 Usage
 -----
