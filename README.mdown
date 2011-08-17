@@ -13,10 +13,7 @@ Usage
 In your config/deploy.rb file:-
 
     require 'capistrano_deploy_webhook/notifier'
-    set :notify_url, "http://mypostserver/deploy_activity"
-
-Credits
--------
+    set :notify_url, "http://mypostserver/postaction"  # <-- Change this to point the HTTP POST action on your server!
 
 License
 -------
