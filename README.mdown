@@ -4,15 +4,15 @@ capistrano_deploy_webhook
 Installation
 ------------
 
-gem install capistrano_deploy_webhook
+    gem install capistrano_deploy_webhook
 
 Usage
 -----
 
 In your config/deploy.rb file:-
 
-          require 'capistrano/notifier_hook'
-          set :notify_url, "http://mypostserver/deploy_activity"
+    require 'capistrano/notifier_hook'
+    set :notify_url, "http://mypostserver/deploy_activity"
 
 Credits
 -------
