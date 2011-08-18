@@ -10,12 +10,13 @@ Capistrano::Configuration.instance.load do
 
   namespace :notify do
     task :post_request do
+      application_name = Rails.root.to_s.split('/')
       puts "*** Notification POST to #{self[:notify_url]}"
       url = URI.parse("#{self[:notify_url]}")
       req = Net::HTTP::Post.new(url.path)
       req.set_form_data(
-        {'app_name' => self[:application], 
-         'app' => self[:application], 
+        {'app_name' => application_name, 
+         'app' => application_name, 
          'user' => self[:user], 
          'sha' => self[:current_revision], 
          'prev_sha' => self[:previous_revision], 
