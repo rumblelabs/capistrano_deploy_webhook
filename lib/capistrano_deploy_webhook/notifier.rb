@@ -16,12 +16,14 @@ Capistrano::Configuration.instance.load do
     task :post_request do
       application_name = `pwd`.chomp.split('/').last
 
+      puts "GIT_USER_EMAIL #{GIT_USER_EMAIL}"
+
       puts "*** Notification POST to #{self[:notify_url]} for #{application_name}"
       url = URI.parse("#{self[:notify_url]}")
       req = Net::HTTP::Post.new(url.path)
       req.set_form_data(
         {'app' => application_name, 
-         'user' => GIT_USER_EMAIL, 
+         'user' => GIT_USER_EMAIL.chomp, 
          'head' => GIT_CURRENT_REV_SHORT, 
          'head_long' => GIT_CURRENT_REV,
          'prev_head' => self[:previous_revision], 
