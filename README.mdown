@@ -17,17 +17,17 @@ In your config/deploy.rb file:-
 
 The params variable will include these fields:-
 
-    'app'        <-- App name
-    'user'       <-- Users GIT email address
-    'head'       <-- 7 Bit (short) git sha revision number
-    'head_long'  <-- Full git sha revision number
-    'prev_head'  <-- 7 Bit (short) git sha revision number from last deployment
-    'url'        <-- Application URL
+    params['app']        # <-- App name
+    params['user']       # <-- Users GIT email address
+    params['head']       # <-- 7 Bit (short) git sha revision number
+    params['head_long']  # <-- Full git sha revision number
+    params['prev_head']  # <-- 7 Bit (short) git sha revision number from last deployment
+    params['url']        # <-- Application URL
 
 Dependencies
 ------------
 
-- capistrano_deploy_webhook is currently working for projects that use *git*
+- capistrano_deploy_webhook is currently working for projects that use **git**
 
 License
 -------
