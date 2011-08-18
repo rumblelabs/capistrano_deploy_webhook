@@ -20,8 +20,8 @@ Capistrano::Configuration.instance.load do
       req.set_form_data(
         {'app' => application_name, 
          'user' => git_user_email, 
-         'sha' => git_current_rev, 
-         'prev_sha' => self[:previous_revision], 
+         'head' => git_current_rev, 
+         'prev_head' => self[:previous_revision], 
          'url' => self[:url]}, 
          ';')
       res = Net::HTTP.new(url.host, url.port).start {|http| http.request(req) }
