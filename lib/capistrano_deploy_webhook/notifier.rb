@@ -23,7 +23,7 @@ Capistrano::Configuration.instance.load do
         {'app' => application_name, 
          'user' => GIT_USER_EMAIL.chomp, 
          'head' => GIT_CURRENT_REV_SHORT, 
-         'head_long' => GIT_CURRENT_REV,
+         'head_long' => GIT_CURRENT_REV.chomp,
          'prev_head' => self[:previous_revision], 
          'url' => self[:url]}, 
          ';')
