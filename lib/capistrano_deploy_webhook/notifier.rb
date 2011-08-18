@@ -10,7 +10,7 @@ Capistrano::Configuration.instance.load do
 
   namespace :notify do
     task :post_request do
-      application_name = Rails.root.to_s.split('/')
+      application_name = `pwd`.chomp.split('/').last
       puts "*** Notification POST to #{self[:notify_url]}"
       url = URI.parse("#{self[:notify_url]}")
       req = Net::HTTP::Post.new(url.path)
