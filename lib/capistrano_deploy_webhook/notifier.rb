@@ -12,6 +12,7 @@ Capistrano::Configuration.instance.load do
     task :post_request do
       application_name = `pwd`.chomp.split('/').last
       git_user_email = `git config --get user.email`
+      git_current_rev = `git rev-parse HEAD`
 
       puts "*** Notification POST to #{self[:notify_url]} for #{application_name}"
       url = URI.parse("#{self[:notify_url]}")
@@ -19,7 +20,7 @@ Capistrano::Configuration.instance.load do
       req.set_form_data(
         {'app' => application_name, 
          'user' => git_user_email, 
-         'sha' => self[:current_revision], 
+         'sha' => git_current_rev, 
          'prev_sha' => self[:previous_revision], 
          'url' => self[:url]}, 
          ';')
