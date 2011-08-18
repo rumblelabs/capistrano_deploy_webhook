@@ -15,6 +15,20 @@ In your config/deploy.rb file:-
     require 'capistrano_deploy_webhook/notifier'
     set :notify_url, "http://mypostserver/postaction"  # <-- Change this to point the HTTP POST action on your server!
 
+The params variable will include these fields:-
+
+    'app'        <-- App name
+    'user'       <-- Users GIT email address
+    'head'       <-- 7 Bit (short) git sha revision number
+    'head_long'  <-- Full git sha revision number
+    'prev_head'  <-- 7 Bit (short) git sha revision number from last deployment
+    'url'        <-- Application URL
+
+Dependencies
+------------
+
+- capistrano_deploy_webhook is currently working for projects that use *git*
+
 License
 -------
 
