@@ -7,7 +7,7 @@ end
 
 GIT_USER_EMAIL = `git config --get user.email`
 GIT_CURRENT_REV = `git rev-parse HEAD`
-GIT_CURRENT_REV_SHORT = git_current_rev[0,7]
+GIT_CURRENT_REV_SHORT = GIT_CURRENT_REV[0,7]
 
 Capistrano::Configuration.instance.load do
   after :deploy, "notify:post_request"
