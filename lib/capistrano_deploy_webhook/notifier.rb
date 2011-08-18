@@ -16,8 +16,6 @@ Capistrano::Configuration.instance.load do
     task :post_request do
       application_name = `pwd`.chomp.split('/').last
 
-      puts "GIT_USER_EMAIL #{GIT_USER_EMAIL}"
-
       puts "*** Notification POST to #{self[:notify_url]} for #{application_name}"
       url = URI.parse("#{self[:notify_url]}")
       req = Net::HTTP::Post.new(url.path)
