@@ -4,15 +4,16 @@ capistrano_deploy_webhook
 Installation
 ------------
 
-    gem 'capistrano_deploy_webhook', :git => 'git://github.com/rumblelabs/capistrano_deploy_webhook.git'
-    bundle install
+    # In your Rails apps root
+    cd vendor/plugins
+    git clone git@github.com:rumblelabs/capistrano_deploy_webhook.git
 
 Usage
 -----
 
 In your config/deploy.rb file:-
 
-    require 'capistrano_deploy_webhook/notifier'
+    require 'vendor/capistrano_deploy_webhook/lib/capistrano_deploy_webhook/notifier'
     set :notify_url, "http://mypostserver/postaction"  # <-- Change this to point the HTTP POST action on your server!
 
 The params variable will include these fields:-
